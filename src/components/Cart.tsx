@@ -16,7 +16,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addToCart, removeFromCart, removeOneFromCart } from '@/redux/features/cart/cartSlice';
 
 export default function Cart() {
-  const {products, total} = useAppSelector(state => state.cart)
+  const {products, total} = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
 
   return (
