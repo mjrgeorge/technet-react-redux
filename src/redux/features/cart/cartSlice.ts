@@ -19,14 +19,31 @@ const cartSlices = createSlice({
         (product) => product._id === action.payload._id
       );
       if (existing) {
-        console.log(`Already added`);
         existing.quantity = existing.quantity! + 1;
       } else {
         state.products.push({ ...action.payload, quantity: 1 });
       }
     },
+    removeOneFromCart: (state, action: PayloadAction<IProduct>) => {
+      const existing = state.products.find(
+        (product) => product._id === action.payload._id
+      );
+      if (existing && existing.quantity! > 1) {
+        existing.quantity = existing.quantity! - 1;
+      } else {
+        state.products = state.products.filter(
+          (product) => product._id !== action.payload._id
+        );
+      }
+    },
+    removeFromCart: (state, action: PayloadAction<IProduct>) => {
+      state.products = state.products.filter(
+        (product) => product._id !== action.payload._id
+      );
+    },
   },
 });
 
-export const { addToCart } = cartSlices.actions;
+export const { addToCart, removeOneFromCart, removeFromCart } =
+  cartSlices.actions;
 export default cartSlices.reducer;
