@@ -25,4 +25,5 @@ const productSlice = createSlice({
 });
 
 export const { toggleState, setPriceRange } = productSlice.actions;
+
 export default productSlice.reducer;
