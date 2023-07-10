@@ -1,6 +1,6 @@
-import React from 'react';
 import logo from '@/assets/images/technet-logo-white.png';
 import { RiFacebookBoxFill, RiInstagramLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
@@ -9,7 +9,9 @@ export default function Footer() {
     <div className="bg-[#242630] text-secondary p-20">
       <div className="flex justify-between">
         <div>
-          <img className="h-10" src={logo} alt="Logo" />
+          <Link to="/">
+            <img className="h-10" src={logo} alt="Logo" />
+          </Link>
         </div>
         <div className="flex gap-20">
           <ul className="space-y-2">
